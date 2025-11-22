@@ -286,44 +286,35 @@ Supernetting combines multiple networks into a single routing entry, reducing ro
 **Given:** 200.1.1.0/24
 **Task:** Create 8 subnets
 
-<details>
-<summary>Solution</summary>
-
+**Solution:**
 - Subnets needed: 8 → 2^3 = 8 (borrow 3 bits)
 - New mask: /27 (255.255.255.224)
 - Block size: 32
 - Subnets: 200.1.1.0/27, 200.1.1.32/27, 200.1.1.64/27...
-</details>
 
 ### Problem 2
 **Given:** 10.5.120.77/22
 **Task:** What is the subnet address?
 
-<details>
-<summary>Solution</summary>
-
+**Solution:**
 - Mask: 255.255.252.0
 - Interesting octet: 3rd (252)
 - Block size: 4
 - Multiples of 4: 0, 4, 8, 12... 116, 120, 124
 - 120 falls in 120-123 range
 - **Subnet: 10.5.120.0**
-</details>
 
 ### Problem 3
 **Given:** Need 30 subnets with at least 2,000 hosts each
 **Task:** What network and mask?
 
-<details>
-<summary>Solution</summary>
-
+**Solution:**
 - Hosts: 2,000 → need 2^11 = 2,048 (11 host bits)
 - Subnets: 30 → need 2^5 = 32 (5 subnet bits)
 - Total bits: 5 + 11 = 16 bits
 - Use Class B: 172.16.0.0/16
 - New mask: /21 (16 + 5 subnet bits)
 - **Answer: Class B network with /21 mask**
-</details>
 
 ## Common Mistakes to Avoid
 

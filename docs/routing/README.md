@@ -271,12 +271,21 @@ Router(config-router)# no auto-summary
 ```
 Cost = Reference Bandwidth / Interface Bandwidth
 
-Default Reference Bandwidth = 100 Mbps
+Default Reference Bandwidth = 100 Mbps (legacy)
+Recommended: 10,000 Mbps or higher for modern networks
 
-Examples:
+Examples with default (100 Mbps):
   FastEthernet (100 Mbps): 100/100 = 1
-  Gigabit Ethernet (1 Gbps): 100/1000 = 1 (rounds to 1)
+  Gigabit Ethernet (1 Gbps): 100/1000 = 1 (rounds to 1 - not ideal!)
   Serial (1.544 Mbps): 100/1.544 = 64
+
+Examples with modern reference (10,000 Mbps):
+  FastEthernet (100 Mbps): 10000/100 = 100
+  Gigabit Ethernet (1 Gbps): 10000/1000 = 10
+  10G Ethernet (10 Gbps): 10000/10000 = 1
+
+Configure modern reference bandwidth:
+Router(config-router)# auto-cost reference-bandwidth 10000
 ```
 
 ### Configuration Example
